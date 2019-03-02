@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import logo from './logo.svg';
 import './App.css';
 import {v4} from 'uuid';
-import List from './components/List';
 
-const TodoData = [{ 
+import Item from './components/Item';
+
+const Wrapper = styled.div`
+  padding: 5em 5em;
+`;
+
+const TodoData = { 
   id: v4(),
   name: 'foo',
   done: false,
@@ -14,14 +20,25 @@ const TodoData = [{
     done: false,
     list: [],
   }],
-}];
+};
 
 class App extends Component {
+  state = {
+    todos: TodoData,
+  };
+
   render() {
+    const { todos } = this.state;
+
     return (
-      <div className="App">
-        <List list={TodoData} />
-      </div>
+      <Wrapper className="App">
+        <Item 
+          id={todos.id} 
+          name={todos.name} 
+          isRoot
+          childList={todos.list}
+        />
+      </Wrapper>
     );
   }
 }

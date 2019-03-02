@@ -32,6 +32,7 @@ function ItemForm({ onSubmit, submitText }) {
     }
 
     const item = {
+      id,
       name: itemName,
       done: false,
       list: [],

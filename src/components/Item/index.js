@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import List from '../List';
-import ItemForm from '../ItemForm'; 
+import ItemForm from '../ItemForm';
 
 const Wrapper = styled.div`
   margin: 2em 1em;
@@ -26,7 +26,7 @@ const Button = styled.button`
   margin-left: 1em;
 `;
 
-function Item({ id, name, done, childList, onDelete }) {
+function Item({ id, name, done, isRoot, childList, onDelete }) {
   const [ itemName, updateItemName ] = useState(name);
   const [ itemChildList, updateItemChildList] = useState(childList);
   const [ itemDone, updateItemDone ] = useState(done);
@@ -91,8 +91,12 @@ function Item({ id, name, done, childList, onDelete }) {
                   onKeyPress={handleKeyPress}
                   value={itemName}
                 />
-                    <Button type="button" onClick={handleItemClick}>Done</Button>
-                    <DeleteButton />
+                {!isRoot && (
+                  <Button type="button" onClick={handleItemClick}>
+                    Done
+                  </Button>
+                )}
+                {!isRoot && <DeleteButton />}
               </label>
             </div>
           )

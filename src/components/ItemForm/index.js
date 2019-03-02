@@ -41,6 +41,12 @@ function ItemForm({ onSubmit, submitText }) {
     onSubmit(item);
   }
 
+  function handleKeyPress(e) {
+    if (e.charCode === 13) {
+      handleSubmit(e);      
+    }
+  }
+
   return (
     <Form>
       <label htmlFor={inputFieldId}>
@@ -48,6 +54,7 @@ function ItemForm({ onSubmit, submitText }) {
         <input htmlFor={inputFieldId}
           type="text"
           onChange={handleChange}
+          onKeyPress={handleKeyPress}
           value={itemName} />
       </label>
       <Button type="submit" onClick={handleSubmit}>{submitText}</Button>

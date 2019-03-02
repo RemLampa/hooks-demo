@@ -8,6 +8,7 @@ import Item from './components/Item';
 
 const Wrapper = styled.div`
   padding: 5em 5em;
+  min-width: 480px;
 `;
 
 const TodoData = { 

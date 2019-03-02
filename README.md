@@ -1,3 +1,7 @@
+# React Hooks Demo
+
+App preview is available at [https://remlampa.github.io/hooks-demo](https://remlampa.github.io/hooks-demo)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
